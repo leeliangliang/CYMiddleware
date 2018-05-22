@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import MGJRouter
+import CYMiddleware
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        CYMiddlewareManager.registDefault()
+        
+        MGJRouter.openURL("test://vc/QxLoginModule.Test")
         return true
     }
 

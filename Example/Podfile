@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'CYMiddleware_Example' do
   pod 'CYMiddleware', :path => '../'
+#  pod 'QxLoginModule', :path => '../../QxLoginModule/'
 
   target 'CYMiddleware_Tests' do
     inherit! :search_paths

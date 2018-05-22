@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19BA4DD328229017053A90EF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		19BA4DD328229017053A90EF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2C37CD451816CFBD8EF91530 /* Pods_CYMiddleware_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CYMiddleware_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4544C8CFFEF90E1FACC9B076 /* Pods_CYMiddleware_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CYMiddleware_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5538524B894C679CD2389A0E /* Pods-CYMiddleware_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CYMiddleware_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CYMiddleware_Example/Pods-CYMiddleware_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,8 +42,8 @@
 		607FACE51AFB9204008FA782 /* CYMiddleware_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CYMiddleware_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7FCB0E9538B42732057DBA85 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		91AA4F605B117A56B60F0031 /* CYMiddleware.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CYMiddleware.podspec; path = ../CYMiddleware.podspec; sourceTree = "<group>"; };
+		7FCB0E9538B42732057DBA85 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		91AA4F605B117A56B60F0031 /* CYMiddleware.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CYMiddleware.podspec; path = ../CYMiddleware.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B903D71D52ECDAA0D9DCC027 /* Pods-CYMiddleware_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CYMiddleware_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CYMiddleware_Example/Pods-CYMiddleware_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BA594BEED4DC681EDA5248E4 /* Pods-CYMiddleware_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CYMiddleware_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CYMiddleware_Tests/Pods-CYMiddleware_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB7A9B5BC20E0E728611607 /* Pods-CYMiddleware_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CYMiddleware_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CYMiddleware_Tests/Pods-CYMiddleware_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 89LUAA9S9X;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -286,11 +287,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CYMiddleware_Example/Pods-CYMiddleware_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
 				"${BUILT_PRODUCTS_DIR}/CYMiddleware/CYMiddleware.framework",
+				"${BUILT_PRODUCTS_DIR}/MGJRouter/MGJRouter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CYMiddleware.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGJRouter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,7 +531,9 @@
 			baseConfigurationReference = B903D71D52ECDAA0D9DCC027 /* Pods-CYMiddleware_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 89LUAA9S9X;
 				INFOPLIST_FILE = CYMiddleware/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -541,7 +548,9 @@
 			baseConfigurationReference = 5538524B894C679CD2389A0E /* Pods-CYMiddleware_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 89LUAA9S9X;
 				INFOPLIST_FILE = CYMiddleware/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

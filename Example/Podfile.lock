@@ -1,0 +1,42 @@
+PODS:
+  - Aspects (1.4.1)
+  - CYMiddleware (0.1.0):
+    - Aspects (~> 1.4.1)
+    - MGJRouter (~> 0.9.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - MGJRouter (0.9.3)
+  - Nimble (7.0.3)
+  - Nimble-Snapshots (6.3.0):
+    - Nimble-Snapshots/Core (= 6.3.0)
+  - Nimble-Snapshots/Core (6.3.0):
+    - FBSnapshotTestCase (~> 2.0)
+    - Nimble (~> 7.0)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - CYMiddleware (from `../`)
+  - FBSnapshotTestCase (~> 2.1.4)
+  - Nimble (~> 7.0.2)
+  - Nimble-Snapshots (~> 6.3.0)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  CYMiddleware:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  CYMiddleware: 6ccd059579efcb5ae6f1ba4af85423d88efba061
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  MGJRouter: f65821e2aeffc8f9e84b254c8f1c0dd80f048aa9
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: 3e964c14507aa6bc904c6dfb3053008c92306d97
+
+COCOAPODS: 1.4.0
