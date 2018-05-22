@@ -1,7 +1,5 @@
 PODS:
-  - Aspects (1.4.1)
   - CYMiddleware (0.1.0):
-    - Aspects (~> 1.4.1)
     - MGJRouter (~> 0.9.0)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
@@ -29,8 +27,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  CYMiddleware: 6ccd059579efcb5ae6f1ba4af85423d88efba061
+  CYMiddleware: adecb0e045c7ab435845de1cbc0c848cf50e6487
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   MGJRouter: f65821e2aeffc8f9e84b254c8f1c0dd80f048aa9
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
