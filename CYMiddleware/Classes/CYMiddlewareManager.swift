@@ -7,7 +7,6 @@
 
 import Foundation
 import MGJRouter
-import Aspects
 
 open class CYMiddlewareManager: NSObject {
     
