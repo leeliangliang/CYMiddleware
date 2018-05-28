@@ -9,16 +9,15 @@ import Foundation
 import MGJRouter
 import CVKHierarchySearcher
 
-
 private extension CVKHierarchySearcher{
     
-    func getMiddleProtocolViewController(_ t: CYMiddlewareProtocol.Type) -> CYMiddlewareProtocol?{
+    func getMiddleProtocolViewController(_ t: CYMiddlewareBaseProtocol.Type) -> CYMiddlewareBaseProtocol?{
         guard let vcs = self.topmostNavigationController?.viewControllers else {
             return nil
         }
         for v in vcs{
             if v.isKind(of: t){
-                return v as? CYMiddlewareProtocol
+                return v as? CYMiddlewareBaseProtocol
             }
         }
         return nil
@@ -31,7 +30,7 @@ open class CYMiddlewareManager: NSObject {
         self.registAllModule()
         //注册默认的跳转
         MGJRouter.registerURLPattern("vc://go/:vcname/" ,toHandler :{ (params) in
-            if let vcType = CYMiddlewareManager.getVCClass(name: params?["vcname"]) as? CYMiddlewareProtocol.Type{
+            if let vcType = CYMiddlewareManager.getVCClass(name: params?["vcname"]) as? CYMiddlewareBaseProtocol.Type{
                 let infoparam = params?[MGJRouterParameterUserInfo] as? [AnyHashable: Any]
                 let vcSearcher = CVKHierarchySearcher()
                 //找到就pop
@@ -40,15 +39,15 @@ open class CYMiddlewareManager: NSObject {
                     vcSearcher.topmostNavigationController.popToViewController(v, animated: true)
                 }else{
                     //找不到到就push
-                    if let a = vcType.init(params: infoparam) as? UIViewController{
+                    if let a = vcType.protocolInstall(params: infoparam) as? UIViewController{
                         vcSearcher.topmostNavigationController.pushViewController(a, animated: true)
                     }
                 }
             }
         })
         MGJRouter.registerURLPattern("vc://get/:vcname/") { (params) -> Any? in
-            if let vc = CYMiddlewareManager.getVCClass(name: params?["vcname"]) as? CYMiddlewareProtocol.Type{
-                return vc.init(params: params?[MGJRouterParameterUserInfo] as? [AnyHashable: Any])
+            if let vc = CYMiddlewareManager.getVCClass(name: params?["vcname"]) as? CYMiddlewareBaseProtocol.Type{
+                return vc.protocolInstall(params: params?[MGJRouterParameterUserInfo] as? [AnyHashable: Any])
             }
             return nil
         }
@@ -69,7 +68,7 @@ open class CYMiddlewareManager: NSObject {
         let autoreleaseintTypes = AutoreleasingUnsafeMutablePointer<AnyClass>(types)
         objc_getClassList(autoreleaseintTypes, Int32(typeCount)) //获取所有的类
         for index in 0 ..< typeCount{
-            (types[index] as? CYMiddlewareProtocol.Type)?.registForRouter()
+            (types[index] as? CYMiddlewareRegistProtocol.Type)?.registForRouter()
         }
         types.deallocate()
     }
