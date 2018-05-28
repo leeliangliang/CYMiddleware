@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CYMiddleware'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'A short description of CYMiddleware.'
   s.swift_version    = '4.0'
 

@@ -10,7 +10,7 @@ public protocol CYMiddlewareBaseProtocol: NSObjectProtocol{
 public protocol CYMiddlewareRegistProtocol: CYMiddlewareBaseProtocol {
     static func registForRouter()
 }
-extension CYMiddlewareBaseProtocol where Self:UIViewController{
+public extension CYMiddlewareBaseProtocol where Self:UIViewController{
     static func protocolInstall(params: [AnyHashable: Any]?) -> CYMiddlewareBaseProtocol?{
         var bundle: Bundle? = Bundle(for: self)
         if let bName = bundle?.infoDictionary?["CFBundleName"] as? String, let path = bundle?.path(forResource: bName, ofType: "bundle") {
