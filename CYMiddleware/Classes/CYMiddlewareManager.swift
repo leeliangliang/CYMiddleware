@@ -32,7 +32,7 @@ open class CYMiddlewareManager: NSObject {
                 }
             }
         })
-        MGJRouter.registerURLPattern("vc://get/:vcname/") { (params) -> Any? in
+        MGJRouter.registerURLPattern("vc://get/:moduleName/:vcName/") { (params) -> Any? in
             let classModuleName = "\(params?["moduleName"] ?? "").\(params?["vcName"] ?? "")"
             if let vc = CYMiddlewareManager.getVCClass(name: classModuleName) as? CYMiddlewareBaseProtocol.Type{
                 return vc.protocolInstall(params: params?[MGJRouterParameterUserInfo] as? [AnyHashable: Any])

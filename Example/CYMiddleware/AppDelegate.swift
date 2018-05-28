@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         CYMiddlewareManager.registDefault()
-        
         MGJRouter.openURL("test://vc/QxLoginModule.Test")
         return true
     }
