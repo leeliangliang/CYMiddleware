@@ -9,28 +9,15 @@ import Foundation
 import MGJRouter
 import CVKHierarchySearcher
 
-private extension CVKHierarchySearcher{
-    
-    func getMiddleProtocolViewController(_ t: CYMiddlewareBaseProtocol.Type) -> CYMiddlewareBaseProtocol?{
-        guard let vcs = self.topmostNavigationController?.viewControllers else {
-            return nil
-        }
-        for v in vcs{
-            if v.isKind(of: t){
-                return v as? CYMiddlewareBaseProtocol
-            }
-        }
-        return nil
-    }
-    
-}
 open class CYMiddlewareManager: NSObject {
     
     public class func registDefault(){
         self.registAllModule()
         //注册默认的跳转
-        MGJRouter.registerURLPattern("vc://go/:vcname/" ,toHandler :{ (params) in
-            if let vcType = CYMiddlewareManager.getVCClass(name: params?["vcname"]) as? CYMiddlewareBaseProtocol.Type{
+        MGJRouter.registerURLPattern("vc://go/:moduleName/:vcName/" ,toHandler :{ (params) in
+            let classModuleName = "\(params?["moduleName"] ?? "").\(params?["vcName"] ?? "")"
+            
+            if let vcType = CYMiddlewareManager.getVCClass(name: classModuleName) as? CYMiddlewareBaseProtocol.Type{
                 let infoparam = params?[MGJRouterParameterUserInfo] as? [AnyHashable: Any]
                 let vcSearcher = CVKHierarchySearcher()
                 //找到就pop
@@ -46,12 +33,15 @@ open class CYMiddlewareManager: NSObject {
             }
         })
         MGJRouter.registerURLPattern("vc://get/:vcname/") { (params) -> Any? in
-            if let vc = CYMiddlewareManager.getVCClass(name: params?["vcname"]) as? CYMiddlewareBaseProtocol.Type{
+            let classModuleName = "\(params?["moduleName"] ?? "").\(params?["vcName"] ?? "")"
+            if let vc = CYMiddlewareManager.getVCClass(name: classModuleName) as? CYMiddlewareBaseProtocol.Type{
                 return vc.protocolInstall(params: params?[MGJRouterParameterUserInfo] as? [AnyHashable: Any])
             }
             return nil
         }
     }
+}
+fileprivate extension CYMiddlewareManager{
     
     private class func getVCClass(name: Any?) -> UIViewController.Type?{
         if let vcName = name as? String{
@@ -71,5 +61,19 @@ open class CYMiddlewareManager: NSObject {
             (types[index] as? CYMiddlewareRegistProtocol.Type)?.registForRouter()
         }
         types.deallocate()
+    }
+}
+private extension CVKHierarchySearcher{
+    
+    func getMiddleProtocolViewController(_ t: CYMiddlewareBaseProtocol.Type) -> CYMiddlewareBaseProtocol?{
+        guard let vcs = self.topmostNavigationController?.viewControllers else {
+            return nil
+        }
+        for v in vcs{
+            if v.isKind(of: t){
+                return v as? CYMiddlewareBaseProtocol
+            }
+        }
+        return nil
     }
 }
