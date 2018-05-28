@@ -1,5 +1,7 @@
 PODS:
-  - CYMiddleware (0.1.0):
+  - CVKHierarchySearcher (0.2.0)
+  - CYMiddleware (0.1.1):
+    - CVKHierarchySearcher (~> 0.2.0)
     - MGJRouter (~> 0.9.0)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
@@ -27,7 +29,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CYMiddleware: adecb0e045c7ab435845de1cbc0c848cf50e6487
+  CVKHierarchySearcher: 7be8d3bcbcc6f86ff07f785e6c632b5e40da2553
+  CYMiddleware: 26bd2644c4728b66b2bb3638a12391d1055ef316
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   MGJRouter: f65821e2aeffc8f9e84b254c8f1c0dd80f048aa9
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac

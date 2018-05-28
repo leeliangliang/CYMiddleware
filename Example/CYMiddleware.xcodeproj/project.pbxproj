@@ -287,11 +287,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CYMiddleware_Example/Pods-CYMiddleware_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CVKHierarchySearcher/CVKHierarchySearcher.framework",
 				"${BUILT_PRODUCTS_DIR}/CYMiddleware/CYMiddleware.framework",
 				"${BUILT_PRODUCTS_DIR}/MGJRouter/MGJRouter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CVKHierarchySearcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CYMiddleware.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGJRouter.framework",
 			);

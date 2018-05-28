@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CYMiddleware'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = 'A short description of CYMiddleware.'
   s.swift_version    = '4.0'
 
@@ -43,5 +43,5 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'MGJRouter', '~> 0.9.0'
 #  s.dependency 'Aspects', '~> 1.4.1'
-
+  s.dependency 'CVKHierarchySearcher', '~> 0.2.0'
 end
